@@ -17,9 +17,9 @@ app.set("view engine", "ejs")
 app.use(logger("dev"));
 
 
-// app.get('/', (req, res) => {
-//     res.write('<h1>Welcome</h1>')
-// })
+app.get('/sign_up', (req, res) => {
+    res.render('sign_up')
+})
 
 app.use('/', rootRouter)
 
