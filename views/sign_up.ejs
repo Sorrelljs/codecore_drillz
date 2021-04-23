@@ -1,42 +1,53 @@
 <%- include('./partials/header') %>
 
 <h1 class="m-5">Create An Account!</h1>
+<%#if (message) { %>
+    <!-- <h2 style="color:red;"><%# message %></h2> -->
+<%# } else { %>
 
 <div class="container" >
-    <!-- <form action='/sign_up' method="POST"> -->
+    <form action='/thank_you' method="POST">
+
         <div class="mb-3 row">
-            <label for="formGroupExampleInput" class="col-sm-2 col-form-label">First Name</label>
+            <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Sancho">
+                <input name= "f_name" type="text" class="form-control" id="first_name" placeholder="Sancho">
             </div>
         </div>
+
         <div class="mb-3 row">
-            <label for="formGroupExampleInput2" class="col-sm-2 col-form-label">Last Name</label>
+            <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Panza">
+                <input name= "l_name" type="text" class="form-control" id="last_name" placeholder="Panza">
             </div>
         </div>
+
         <div class="mb-3 row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+                <input name= "email" type="text" class="form-control" id="email" placeholder="email@example.com">
             </div>
         </div>
+
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <input name="password" type="password" class="form-control" id="password">
             </div>
         </div>
+
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password Confirmation</label>
+            <label for="confirm_password" class="col-sm-2 col-form-label">Password Confirmation</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <input name= "password_confirmation" type="password" class="form-control" id="confirm_password">
             </div>
         </div>
+
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input class="btn btn-primary" type="submit" value="Create Account!">
         </div>
-    <!-- </form> -->
+    </form>
 </div>
+<%#} %>
+
 <%- include('./partials/footer') %>
