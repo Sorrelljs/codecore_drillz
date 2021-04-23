@@ -2,4 +2,18 @@
 
 <h1 class="m-5">Drill Groups</h1>
 
+<% for (let group of groups) {%>
+    <div class='card'>
+        <div class='card-body'>
+            <div class="d-flex justify-content-between">
+                <h5 class="card-title"><%= group.name %></h5>
+            </div>
+            <div class='card-text'>
+                <%= group.description %> 
+            </div>
+        </div>
+    </div>
+<% } %> 
+
+
 <%- include('./partials/footer') %>

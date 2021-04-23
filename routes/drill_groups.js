@@ -3,8 +3,13 @@ const knex = require('../db/client');
 let router = express.Router();
 
 router.get("", (req, res) => {
-        res.render("show")
+    return knex('groups')
+        .orderBy('created_at', 'DESC')
+        .select('*')
+        .then(groups => {
+            res.render('show', { groups })
     })
+});
 
 
 module.exports = router;
