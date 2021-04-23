@@ -1,6 +1,10 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
 <h1 class="m-5">Drill Groups</h1>
+
+<div class='d-flex justify-content-end'>
+    <a class="nav-link btn btn-secondary" href="/drill_groups/new">Add Group</a>
+</div>
 
 <% for (let group of groups) {%>
     <div class='card'>
@@ -16,4 +20,4 @@
 <% } %> 
 
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>

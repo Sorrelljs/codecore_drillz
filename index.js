@@ -7,18 +7,14 @@ const { render } = require("ejs");
 // Routers
 const rootRouter = require('./routes/root');
 const drillsRouter = require("./routes/drills");
-const drillGroupsRouter = require("./routes/drill_groups")
-
-
+const drillGroupsRouter = require("./routes/drill_groups");
 
 const app = express();
-app.set("view engine", "ejs")
-
-
-// app.set("view engine", "ejs"); Not needed yet
-// app.use(cookieParser()); Not needed yet
-
+app.set("view engine", "ejs");
 app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 
 app.get('/sign_up', (req, res) => {

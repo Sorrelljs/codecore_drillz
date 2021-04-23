@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<h1 class="m-5">New Drill Group</h1>
+
+<form action="/drill_groups" method="POST">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <div>
+                <label for="name" class="form-label text-secondary">Group Name</label>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div>
+                <label for="description" class="form-label text-secondary">Description</label>
+            </div>
+            <div class="mb-3">
+                <textarea type="text" class="form-control" rows="3" id="description" name="description" placeholder="Describe the group"></textarea>
+            </div>
+            <div>
+                <label class="form-label text-secondary">Level</label>
+            </div>
+            <div class="mb-3">
+                <input type="radio" id="beginner" name="level" value="beginner">
+                <label for="beginner">Beginner</label><br>
+                <input type="radio" id="intermediate" name="level" value="intermediate">
+                <label for="intermediate">Intermediate</label><br>
+                <input type="radio" id="advanced" name="level" value="advanced">
+                <label for="advanced">Advanced</label>
+            </div>
+            <div>
+                <label for="points" class="form-label text-secondary">Points</label>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="points" name="points">
+            </div>
+
+            <div class="float-right">
+            <input type="submit" class="btn btn-outline-secondary" value="Save">
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include('../partials/footer') %>
