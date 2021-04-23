@@ -3,7 +3,11 @@ const path = require("path");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const { render } = require("ejs");
-const rootRouter = require('./routes/root')
+
+// Routers
+const rootRouter = require('./routes/root');
+const drillsRouter = require("./routes/drills");
+const drillGroupsRouter = require("./routes/drill_groups")
 
 
 
@@ -21,7 +25,11 @@ app.get('/sign_up', (req, res) => {
     res.render('sign_up')
 })
 
-app.use('/', rootRouter)
+
+// Routes
+app.use('/', rootRouter);
+app.use("/drills", drillsRouter);
+app.use("/drill_groups", drillGroupsRouter);
 
 
 const PORT = 3000;

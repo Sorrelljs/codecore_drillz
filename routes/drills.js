@@ -3,7 +3,7 @@ let router = express.Router();
 
 router.route("/:id")
     .get((req, res) => {
-        res.render("show drill")
+        res.write("show drill")
     })
     // .post((req, res) => {
         
