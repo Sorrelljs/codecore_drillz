@@ -15,7 +15,7 @@ app.use(logger("dev"));
 
 
 app.get('/', (req, res) => {
-    res.write('<h1>Welcome</h1>')
+    res.send('<h1>Welcome</h1>')
 })
 
 
