@@ -1,4 +1,5 @@
 const express = require("express");
+const knex = require('../db/client')
 let router = express.Router();
 
 router.route("/:id")

@@ -38,3 +38,5 @@ const ADDRESS = "localhost";
 app.listen(PORT, ADDRESS, () => {
 	console.log(`Server listenning on http://${ADDRESS}:${PORT}`);
 });
+
+module.exports = app;
