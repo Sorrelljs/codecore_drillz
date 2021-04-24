@@ -29,7 +29,7 @@ router.post('/', async (request, response) => {
       username: user.first_name,
     }
 
-    response.redirect('/')
+    response.redirect('/thank_you')
 
 })
 
