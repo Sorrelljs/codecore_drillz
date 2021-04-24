@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const knex = require("./db/client");
 const session = require('express-session')
+const methodOverride = require('method-override')
 const logger = require("morgan");
 const { render } = require("ejs");
 const rootRouter = require('./routes/root')
@@ -18,6 +19,16 @@ app.set("view engine", "ejs")
 
 
 app.use(logger("dev"));
+
+app.use(methodOverride((request, response) => {
+	if (request.body && request.body._method) {
+	  const method = request.body._method
+  
+	  delete request.body._method
+
+	  return method
+	}
+  }))
 
 
 app.use(session({

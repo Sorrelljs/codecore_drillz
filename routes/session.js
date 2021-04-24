@@ -24,21 +24,20 @@ router.post('/', async (request, response) => {
             response.redirect('/')
         } else {
           console.log('there was an error trying to get the username')
-        // request.session.alert = {
-        //   type: 'warning',
-        //   message: `Password was incorrect`,
-        // }
+  
         response.redirect('/session/new')
       }
     }
+})
 
-    // } else {
-    //   request.session.alert = {
-    //     type: 'warning',
-    //     message: `Cannot find user ${username}`,
-    //   }
-    //   response.redirect('/session/new')
-    // }
+
+router.delete('/', (request, response) => {
+
+    request.session.destroy(() => {
+
+      response.locals.username = null
+      response.render('welcome')
+    })
 })
 
 module.exports = router
