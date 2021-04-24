@@ -1,0 +1,33 @@
+<%- include('./partials/header') %>
+
+<h1> Sign In</h1>
+
+
+<div class="container" >
+    <!-- <form action='/user' method="POST"> -->
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input name = "email" type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input name = "password" type="text" class="form-control" id="formGroupExampleInput" placeholder="*********************">
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <div>
+            <a href="#">Forgot Password?</a>
+        </div>
+        <div>
+            <a href="/user/sign_up">Don't have an account? Sign Up</a>
+        </div>
+    </form>
+</div>
+
+<%- include('./partials/footer') %>

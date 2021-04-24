@@ -9,6 +9,7 @@ const { render } = require("ejs");
 const rootRouter = require('./routes/root');
 const drillsRouter = require("./routes/drills");
 const drillGroupsRouter = require("./routes/drill_groups");
+const userRouter = require('./routes/user')
 
 const app = express();
 app.set("view engine", "ejs");
@@ -24,15 +25,14 @@ app.use(methodOverride((req, res) => {
 	}
 }))
 
-app.get('/sign_up', (req, res) => {
-    res.render('sign_up')
-})
+
 
 
 // Routes
 app.use('/', rootRouter);
 app.use("/drills", drillsRouter);
 app.use("/drill_groups", drillGroupsRouter);
+app.use("/user", userRouter)
 
 
 const PORT = 3000;
