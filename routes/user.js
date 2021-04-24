@@ -1,6 +1,6 @@
 const express = require("express");
 const knex = require('../db/client');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const sgMail = require('@sendgrid/mail');
 
