@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<h1 class="m-5">Sign In!</h1>
+
+<div class="container">
+    <form action='/sign_in' method="POST">
+        <div class="m-3">
+            <label for="e_mail" class="form-label">Email</label>
+            <input name='e_mail' type="text" class="form-control" id="e-mail" placeholder="gr8m8@kangaroos.com">
+        </div>
+        <div class="m-3">
+            <label for="password" class="form-label">Passowrd</label>
+            <input name='password' type="password" class="form-control" id="password" placeholder="******">
+        </div>
+        <input class="btn btn-primary m-3" type="submit" value="Sign In">
+    </form>
+</div>
+
+<div class="container d-flex justify-content-between">
+    <a href="#">Forgot password?</a>
+    <a href="/sign_up">Don't have an Account? Create one!</a>
+</div>
+
+
+<%- include('../partials/footer') %>
