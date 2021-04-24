@@ -38,6 +38,43 @@ router
     response.render('drills/new')
 })
 
+router
+    .route("/:id")
+    .get((req, res) => {
+        const id = req.params.id
+
+        knex('drillz')
+            .where('id', id)
+            .first()
+            .then(drill => {
+                res.render('drills/show', { drill })
+            })
+    })
+    .delete((req, res) => {
+        const id = req.params.id
+
+        knex('drillz')
+            .where('id', id)
+            .del()
+            .then(() => {
+                console.log('Article deleted')
+                res.redirect('/drills')
+        })
+    });
+
+    router
+    .route("/:id/edit")
+    .get((req, res) => {
+        const id = req.params.id
+
+        knex('drillz')
+            .where('id', id)
+            .first()
+            .then(drill => {
+                res.render("drills/edit", { drill })
+            })
+    });
+
 
 
 module.exports = router;
