@@ -20,6 +20,28 @@ app.set("view engine", "ejs")
 app.use(logger("dev"));
 
 
+app.use(session({
+	name: 'user', 
+  
+	
+	secret: 'secret_key', 
+  
+	resave: false, 
+	saveUninitialized: false, 
+  
+	cookie: { secure: false },
+}))
+
+app.use((request, response, next) => {
+
+	console.log(request.session)
+	const { user } = request.session
+
+	response.locals.username = user && user.username
+
+	next()
+})
+
 
 app.use('/', rootRouter)
 app.use('/users', usersRouter)

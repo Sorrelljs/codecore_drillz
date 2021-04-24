@@ -7,4 +7,38 @@ router.get('/new', (request, response) => {
     response.render('session/new')
 })
 
+router.post('/', async (request, response) => {
+
+    const { e_mail, password } = request.body
+    const user = await knex('users').where('email', e_mail).first()
+  
+    if (user) {
+
+      const isValid = await bcrypt.compare(password, user.password)
+  
+      if (isValid) {
+            request.session.user = {
+            id: user.id,
+            username: user.first_name,
+            }
+            response.redirect('/')
+        } else {
+          console.log('there was an error trying to get the username')
+        // request.session.alert = {
+        //   type: 'warning',
+        //   message: `Password was incorrect`,
+        // }
+        response.redirect('/session/new')
+      }
+    }
+
+    // } else {
+    //   request.session.alert = {
+    //     type: 'warning',
+    //     message: `Cannot find user ${username}`,
+    //   }
+    //   response.redirect('/session/new')
+    // }
+})
+
 module.exports = router

@@ -24,6 +24,11 @@ router.post('/', async (request, response) => {
       response.redirect('/users/new')
     })
 
+    request.session.user = {
+      id: user.id,
+      username: user.first_name,
+    }
+
     response.redirect('/')
 
 })
