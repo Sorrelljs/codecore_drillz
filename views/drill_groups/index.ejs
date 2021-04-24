@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<h1 class="m-5">Drill Groups</h1>
+
+<div class='d-flex justify-content-end'>
+    <a class="nav-link btn btn-secondary" href="/drill_groups/new">Add Group</a>
+</div>
+
+<% for (let group of groups) {%>
+    <div class='card'>
+        <div class='card-body'>
+            <div class="d-flex justify-content-between">
+                <h5 class="card-title"><%= group.name %></h5>
+            </div>
+            <div class='card-text'>
+                <%= group.description %> 
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <form action="/drill_groups/<%= group.id %>" method="GET">
+                <button class="btn btn-secondary" type="submit">View</button>
+            </form>
+            <form action="/drill_groups/<%= group.id %>/edit" method="GET">
+                <button class="btn btn-secondary" type="submit">Edit</button>
+            </form>
+            <form action="/drill_groups/<%= group.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-secondary" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+<% } %> 
+
+
+<%- include('../partials/footer') %>
