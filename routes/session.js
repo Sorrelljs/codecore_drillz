@@ -21,7 +21,7 @@ router.post('/', async (request, response) => {
             id: user.id,
             username: user.first_name,
             }
-            response.redirect('/')
+            response.redirect('/drill_groups')
         } else {
           console.log('there was an error trying to get the username')
   
