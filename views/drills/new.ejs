@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<h1 class="m-5">New Drill</h1>
+
+<form action="/drills" method="POST">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <div>
+                <label for="title" class="form-label text-secondary">Drill Name</label>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div>
+                <label for="description" class="form-label text-secondary">Description</label>
+            </div>
+            <div class="mb-3">
+                <textarea type="text" class="form-control" rows="3" id="description" name="description" placeholder="Describe the group"></textarea>
+            </div>
+
+            <div class="float-right">
+            <input type="submit" class="btn btn-outline-secondary" value="Save">
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include('../partials/footer') %>
