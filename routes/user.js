@@ -18,16 +18,19 @@ router.get('/sign_up', (req, res) => {
     res.render('sign_up')
 })
 
+
 router
 .route('')
-.post((req, res) => {
+.post(async (req, res) => {
     const { first_name, last_name, email, password } = req.body
+
+    const hashedPassword = await bcrypt.hash(password, 10) 
     
     knex('users')
     .insert(
         {
             email: email,
-            password: password,
+            password: hashedPassword,
             first_name: first_name,
             last_name: last_name,
         }, '*')
