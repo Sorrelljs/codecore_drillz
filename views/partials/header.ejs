@@ -31,13 +31,20 @@
               <li class="nav-item">
                 <a class="nav-link" href="/drills">New Drill</a>
               </li>
+              <% if (username) {%>
+                  <span class="m-2">Welcome, <%= username %></span>
+                  <form class="d-flex" action="/session" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input class="btn btn-link" type="submit" value="Log out">
+                  </form>
+              <% } else { %>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sign In</a>
+                <a class="nav-link" href="/session/new">Sign In</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/sign_up">Sign Up</a>
+                <a class="nav-link" href="/users/new">Sign Up</a>
               </li>
-              
+              <% } %>
             </ul>
           
           </div>
