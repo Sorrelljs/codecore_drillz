@@ -5,24 +5,20 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const logger = require("morgan");
 const { render } = require("ejs");
-const rootRouter = require('./routes/root')
-const usersRouter = require('./routes/users')
-const sessionRouter = require('./routes/session')
 const cookieParser = require("cookie-parser");
-
 
 // Routers
 const rootRouter = require('./routes/root');
 const drillsRouter = require("./routes/drills");
 const drillGroupsRouter = require("./routes/drill_groups");
+const usersRouter = require('./routes/users');
+const sessionRouter = require('./routes/session')
 
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs")
-
-
 
 app.use(logger("dev"));
 
@@ -35,7 +31,6 @@ app.use(methodOverride((request, response) => {
 	  return method
 	}
   }))
-
 
 app.use(session({
 	name: 'user', 
@@ -53,7 +48,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use((request, response, next) => {
 
 	console.log(request.session)
@@ -64,17 +58,12 @@ app.use((request, response, next) => {
 	next()
 })
 
-
-
-
 // Routes
 app.use('/', rootRouter);
 app.use("/drills", drillsRouter);
 app.use("/drill_groups", drillGroupsRouter);
-app.use('/users', usersRouter)
-app.use('/session', sessionRouter) 
-
-
+app.use('/users', usersRouter);
+app.use('/session', sessionRouter)
 
 const PORT = 3000;
 const ADDRESS = "localhost";
