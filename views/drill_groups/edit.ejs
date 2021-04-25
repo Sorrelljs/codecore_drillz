@@ -22,11 +22,11 @@
             </div>
 
             <div class="mb-3">
-                <input type="radio" id="beginner" name="level" value="beginner">
+                <input type="radio" id="beginner" name="level" value="beginner" <%= level === 'beginner' ? 'checked' : ''%>>
                 <label for="beginner">Beginner</label><br>
-                <input type="radio" id="intermediate" name="level" value="intermediate">
+                <input type="radio" id="intermediate" name="level" value="intermediate" <%= level === "intermediate" ? "checked" : "" %>>
                 <label for="intermediate">Intermediate</label><br>
-                <input type="radio" id="advanced" name="level" value="advanced">
+                <input type="radio" id="advanced" name="level" value="advanced" <%= level === "advanced" ? "checked" : "" %>>
                 <label for="advanced">Advanced</label>
             </div>
             <div>
