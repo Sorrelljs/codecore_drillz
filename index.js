@@ -63,6 +63,16 @@ app.use((request, response, next) => {
 })
 
 
+app.get('/reset_password', (request, response)=> {
+	response.render('reset_password')
+})
+
+app.get('/password_confirm', (request, response)=> {
+	response.render('password_confirm')
+})
+
+
+
 
 
 // Routes
