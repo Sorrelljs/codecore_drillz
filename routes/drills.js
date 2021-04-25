@@ -51,20 +51,8 @@ router
     })
     .post((req, res) => {
         const { student_answer, drill_answer } = req.body
-        console.log(req.body)
 
         res.render('drills/answer', { student_answer, drill_answer })
-
-        // async function checkAnswer() {
-        //     if (student_answer == drill_answer) {
-        //         answer_correct = true
-        //     } else {
-        //         answer_correct = false
-        //     }
-        // }
-        // checkAnswer().then(answer_correct => {
-        //     res.render('drills/answer', { answer_correct })
-        // })
     })
     .delete((req, res) => {
         const id = req.params.id
