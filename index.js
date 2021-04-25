@@ -21,6 +21,14 @@ app.get('/sign_up', (req, res) => {
     res.render('sign_up')
 })
 
+app.get('/reset_password', (request, response)=> {
+	response.render('reset_password')
+})
+
+app.get('/password_confirm', (request, response)=> {
+	response.render('password_confirm')
+})
+
 app.use('/', rootRouter)
 
 
