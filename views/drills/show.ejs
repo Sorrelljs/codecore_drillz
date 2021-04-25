@@ -1,6 +1,19 @@
 <%- include('../partials/header') %>
 
-<h1 class="m-5">Show all the drills in "<%= drillz.title %>"</h1>
-
+<h1 class="m-5"><%= drill.description %></h1>
+<div class="card-body">
+    <form action="/drills/:id" method="POST">
+        <div>
+            <label for="student_answer" class="form-label text-secondary">Your Answer:</label>
+        </div>
+        <div class="mb-3">
+            <textarea type="text" class="form-control" rows="3" id="student_answer" name="student_answer"></textarea>
+        </div>
+            <input type="hidden" name="drill_answer" value="<%= drill.answer %>">
+        <div class="float-right">
+            <input type="submit" class="btn btn-outline-secondary" value="Submit">
+        </div>
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

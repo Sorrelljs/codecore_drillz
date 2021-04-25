@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+<div class="card">
+    <% if (student_answer == drill_answer) { %>
+        <h5 class="card-title">Correct!</h5>
+    <% } else { %> 
+        <h5 class="card-title">Sorry that's not correct :(</h5>
+    <% } %> 
+</div>
+<%- include('../partials/footer') %>

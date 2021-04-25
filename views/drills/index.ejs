@@ -3,36 +3,19 @@
 <h1 class="m-5">Drill </h1>
 
 <div class='d-flex justify-content-end'>
-    <a class="nav-link btn btn-secondary" href="/drills/new">Add Drill</a>
+  <a class="nav-link btn btn-secondary" href="/drills/new">Add Drill</a>
 </div>
 
 <% for (let drill of drillz) {%>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= drill.title %></h5>
-              <p class="card-text"><%= drill.description %></p>
-            </div>
-          </div>
-        </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= drill.description %></h5>
+        <a class="btn btn-secondary" href="/drills/<%= drill.id %> ">Attempt</a>
       </div>
-    </br>
-      <div class="d-flex justify-content">
-        <form action="/drills<%= drill.id %>" method="GET">
-            <button class="btn btn-secondary" type="submit">View</button>
-        </form>
-        <form action="/drills<%=  drill.id %>/edit" method="GET">
-            <button class="btn btn-secondary" type="submit">Edit</button>
-        </form>
-        <form action="/drills<%=  drill.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn-secondary" type="submit">Delete</button>
-        </form>
-   
     </div>
-</br>
-      <% } %> 
+  </div>
+<% } %> 
 
 
     <!-- <div class='card'>

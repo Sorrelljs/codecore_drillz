@@ -31,23 +31,40 @@ router
         res.redirect('/drills')
     });
 
-    router
+router
     .route('/new')
-    .get((request, response) => {
-        response.render('drills/new')
+    .get((req, res) => {
+        res.render('drills/new')
     })
 
 router
     .route("/:id")
     .get((req, res) => {
         const id = req.params.id
-
+ 
         knex('drillz')
             .where('id', id)
             .first()
             .then(drill => {
                 res.render('drills/show', { drill })
             })
+    })
+    .post((req, res) => {
+        const { student_answer, drill_answer } = req.body
+        console.log(req.body)
+
+        res.render('drills/answer', { student_answer, drill_answer })
+
+        // async function checkAnswer() {
+        //     if (student_answer == drill_answer) {
+        //         answer_correct = true
+        //     } else {
+        //         answer_correct = false
+        //     }
+        // }
+        // checkAnswer().then(answer_correct => {
+        //     res.render('drills/answer', { answer_correct })
+        // })
     })
     .delete((req, res) => {
         const id = req.params.id
@@ -61,7 +78,7 @@ router
         })
     });
 
-    router
+router
     .route("/:id/edit")
     .get((req, res) => {
         const id = req.params.id
