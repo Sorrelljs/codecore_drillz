@@ -12,7 +12,6 @@ const cookieParser = require("cookie-parser");
 
 
 // Routers
-const rootRouter = require('./routes/root');
 const drillsRouter = require("./routes/drills");
 const drillGroupsRouter = require("./routes/drill_groups");
 
@@ -40,7 +39,6 @@ app.use(methodOverride((request, response) => {
 app.use(session({
 	name: 'user', 
   
-	
 	secret: 'secret_key', 
   
 	resave: false, 
