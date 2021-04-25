@@ -8,7 +8,6 @@ exports.up = function(knex) {
         table.string('password');
         table.timestamp("created_at").defaultTo(knex.fn.now());
       })
-  
 };
 
 exports.down = function(knex) {
