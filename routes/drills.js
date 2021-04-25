@@ -40,7 +40,7 @@ router
 router
     .route("/:id")
     .get((req, res) => {
-        const id = req.params.id
+        const id  = req.params.id
  
         knex('drillz')
             .where('id', id)
@@ -50,9 +50,15 @@ router
             })
     })
     .post((req, res) => {
-        const { student_answer, drill_answer } = req.body
+        const { student_answer } = req.body
+        const id = req.params.id
 
-        res.render('drills/answer', { student_answer, drill_answer })
+        knex('drillz')
+            .where('id', id)
+            .first()
+            .then(drill => {
+                res.render('drills/show', { drill, student_answer})
+            })
     })
     .delete((req, res) => {
         const id = req.params.id
@@ -61,7 +67,7 @@ router
             .where('id', id)
             .del()
             .then(() => {
-                console.log('Article deleted')
+                console.log('Drill deleted')
                 res.redirect('/drills')
         })
     });
