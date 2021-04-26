@@ -23,7 +23,7 @@ router.post('/', async (request, response) => {
             }
             response.redirect('/drill_groups')
         } else {
-          console.log('there was an error trying to get the username')
+        console.log('there was an error trying to get the username')
   
         response.redirect('/session/new')
       }
