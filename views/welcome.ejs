@@ -1,8 +1,37 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+<body  style = "text-align-last: center;">
+    <h1 style = "font-size: 50px;">Welcome to CodeCore Drillz</h1>
+    <div>
+        <span style="font-size: 72px;">
+        <i class="fas fa-cog"></i>
+        </span>
+        <span style="font-size: 72px;">
+        <i class="fas fa-location-arrow"></i>
+        </span>
+        <span style="font-size: 72px;">
+        <i class="fas fa-check"></i>
+        </span>
+    </div>
+    <hr>
+    
+<% if (username) { %>
+    <form action="/drill_groups">
+        <button type = "submit"> Enter</button>
+    </form>
+        <% }  else { %>
+    <form action="/users/new">
+    <button type = "submit"> Enter</button>
+</form>
+<% } %>
+    
+</body>
+</html>
 
-
-<h1>welcome page</h1>
-
-<h2>blogs</h2>
-
-<%- include('./partials/footer') %>

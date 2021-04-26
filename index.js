@@ -12,6 +12,10 @@ const cookieParser = require("cookie-parser");
 
 
 
+
+
+// Routers
+
 const drillsRouter = require("./routes/drills");
 const drillGroupsRouter = require("./routes/drill_groups");
 
@@ -39,7 +43,6 @@ app.use(methodOverride((request, response) => {
 app.use(session({
 	name: 'user', 
   
-	
 	secret: 'secret_key', 
   
 	resave: false, 
@@ -62,6 +65,16 @@ app.use((request, response, next) => {
 
 	next()
 })
+
+
+app.get('/reset_password', (request, response)=> {
+	response.render('reset_password')
+})
+
+app.get('/password_confirm', (request, response)=> {
+	response.render('password_confirm')
+})
+
 
 
 

@@ -4,50 +4,60 @@ let router = express.Router();
 
 
 router
-.route('')
-.get((req, res) => {
-    return knex('drillz')
-        .orderBy('created_at', 'DESC')
-        .select('*')
-        .then(drillz => {
-            res.render('drills/index', { drillz })
+    .route('')
+    .get((req, res) => {
+        return knex('drillz')
+            .orderBy('created_at', 'DESC')
+            .select('*')
+            .then(drillz => {
+                res.render('drills/index', { drillz })
+        })
     })
-})
+    .post((req, res) => {
 
-.post((req, res) => {
+        const { title, description } = req.body
 
-    const { title, description } = req.body
-
-    knex('drillz')
-    .insert(
-        {
-            title: title,
-            description: description,
-        }, '*')
-    .then((data) => {
-        //res.render(data)
-        console.table(data)
-    })
-    .catch(console.error)
-    res.redirect('/drills')
-});
+        knex('drillz')
+        .insert(
+            {
+                title: title,
+                description: description,
+            }, '*')
+        .then((data) => {
+            //res.render(data)
+            console.table(data)
+        })
+        .catch(console.error)
+        res.redirect('/drills')
+    });
 
 router
-.route('/new')
-.get((request, response) => {
-    response.render('drills/new')
-})
+    .route('/new')
+    .get((req, res) => {
+        res.render('drills/new')
+    })
 
 router
     .route("/:id")
     .get((req, res) => {
+        const id  = req.params.id
+ 
+        knex('drillz')
+            .where('id', id)
+            .first()
+            .then(drill => {
+                res.render('drills/show', { drill })
+            })
+    })
+    .post((req, res) => {
+        const { student_answer } = req.body
         const id = req.params.id
 
         knex('drillz')
             .where('id', id)
             .first()
             .then(drill => {
-                res.render('drills/show', { drill })
+                res.render('drills/show', { drill, student_answer})
             })
     })
     .delete((req, res) => {
@@ -57,12 +67,12 @@ router
             .where('id', id)
             .del()
             .then(() => {
-                console.log('Article deleted')
+                console.log('Drill deleted')
                 res.redirect('/drills')
         })
     });
 
-    router
+router
     .route("/:id/edit")
     .get((req, res) => {
         const id = req.params.id
