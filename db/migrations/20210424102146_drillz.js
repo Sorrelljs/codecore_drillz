@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table
             .integer("group_id")
             .references("groups.id") // Foreign key
-            .onUpdate('CASCADE') // If post.id is updated, update comment.post_id as well
+            .onUpdate('CASCADE')
             .onDelete('CASCADE')
         table.timestamp('created_at').defaultTo(knex.fn.now())
         table.timestamp('updated_at').defaultTo(knex.fn.now())
